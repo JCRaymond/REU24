@@ -36,7 +36,6 @@ def gen_rooted_tree_bfs(n):
     bfs = [None] * n
 
     root = randrange(n)
-    print(root)
 
     rooted_tree[root] = root
     bfs[0] = root
