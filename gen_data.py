@@ -17,7 +17,7 @@ def gen_data(ns, num_trees, max_l, s, aas, fname):
                     genomes = gen_genomes.gen_genomes(n, max_l, s, rtbfs, a)
                     errors = check_estimator.check_estimator(genomes, rtbfs)
                     avg_error = np.average(errors, axis=1)
-                    f.write(f'{n} {max_l} {a}\n')
+                    f.write(f'{n} {max_l} {a} {s}\n')
                     f.write(f'{",".join(map(str, rtbfs[0]))}\n')
                     f.writelines(f'{",".join(map(str, avg_error))}\n')
 
