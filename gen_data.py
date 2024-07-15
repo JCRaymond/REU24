@@ -16,11 +16,10 @@ def gen_data(ns, num_trees, max_l, s, aas, fname):
                     rtbfs = gen_tree.gen_rooted_tree_bfs(n)
                     genomes = gen_genomes.gen_genomes(n, max_l, s, rtbfs, a)
                     errors = check_estimator.check_estimator(genomes, rtbfs)
-                    f.write(f'{n} {max_l} {s} {a}\n')
+                    avg_error = np.average(errors, axis=1)
+                    f.write(f'{n} {max_l} {a}\n')
                     f.write(f'{",".join(map(str, rtbfs[0]))}\n')
-                    f.writelines('\n'.join(
-                        map(lambda x: ','.join(map(str, x)), errors)))
-                    f.write('\n')
+                    f.writelines(f'{",".join(map(str, avg_error))}\n')
 
 
 if __name__ == '__main__':
