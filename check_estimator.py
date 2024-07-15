@@ -8,7 +8,7 @@ def check_estimator(genomes, rtbfs):
     bfs_iter = iter(bfs)
     root = next(bfs_iter)
 
-    errors = np.zeros((l, s))
+    errors = np.zeros((l, s), dtype=np.int32)
     mask = np.zeros(n, dtype=bool)
 
     actual_dist_max = np.max(np.cumsum(genomes[parent] != genomes, axis=1),
